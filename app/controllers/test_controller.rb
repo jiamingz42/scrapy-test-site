@@ -4,8 +4,8 @@ class TestController < ApplicationController
   DEFAULT_LINK_SIZE = 10
 
   def index
-    @link_size = params.fetch(:link_size, DEFAULT_LINK_SIZE)
-    @max_depth = params.fetch(:max_depth, DEFAULT_MAX_DEPTH)
+    @link_size = params.fetch(:link_size, DEFAULT_LINK_SIZE).to_i
+    @max_depth = params.fetch(:max_depth, DEFAULT_MAX_DEPTH).to_i
     @depth = params.fetch(:depth, 0).to_i
     
     # Use the combination of page_id and depth as seed
