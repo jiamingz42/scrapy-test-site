@@ -1,0 +1,19 @@
+<h1>Page Namespace: <%= params[:page_namespace] %></h1>
+
+<h2>Page Id: <%= params[:page_id] %></h2>
+
+<h2>Next Pages<h2>
+<ul>
+  <% @next_page_ids.each do |page_id| %>
+    <li>
+      <%= link_to page_id, page_path(params[:page_namespace], page_id, @next_page_params)%>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Other Params<h2>
+<ul>
+    <li>link_size: <%= @link_size %></li>
+    <li>max_depth: <%= @max_depth %></li>
+    <li>depth: <%= @depth %></li>
+</ul>
