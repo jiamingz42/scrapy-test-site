@@ -8,7 +8,9 @@ class TestController < ApplicationController
     @max_depth = params.fetch(:max_depth, DEFAULT_MAX_DEPTH)
     @depth = params.fetch(:depth, 0).to_i
     
-    @next_page_ids = @depth >= @max_depth ? [] : make_page_id_enumerator(params[:page_id]).take(@link_size)
+    # Use the combination of page_id and depth as seed
+    # so that there won't be any duplicate links
+    @next_page_ids = @depth >= @max_depth ? [] : make_page_id_enumerator(params[:page_id]+@depth.to_s).take(@link_size)
     @next_page_params = params.except(:controller, :action, :page_namespace, :page_id).merge(depth: @depth+1)
   end
 
