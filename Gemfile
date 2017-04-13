@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'awesome_print'
 gem 'pg'
+gem 'sqlite3'
 
 group :development, :test do
   gem 'byebug'
